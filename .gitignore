@@ -1,0 +1,90 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Test cache
+.pytest_cache/
+
+# Virtual environments
+.venv/
+.venv1/
+venv/
+
+# IDE
+.idea/
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build / packaging
+build/
+dist/
+*.egg-info/
+
+# Runtime logs
+*.log
+
+# Local report outputs (keep drafts local)
+reports/*.tmp
+
+# ===== 生成的大文件（不看版本，用脚本重新生成） =====
+# TMM 仿真数据（6MB，运行 stage1 即可重新生成）
+stage1/simulation_data/tmm_emissivity_data.csv
+stage1/simulation_data/tmm_emissivity_data_regioned.csv
+
+# 模型文件（太大，用脚本重新训练）
+*.pkl
+*.joblib
+
+# 测试结果（1.5MB）
+stage1/simulation_data/test_results.json
+stage1/simulation_data/speed_results.json
+stage1/simulation_data/baseline_comparison_results.json
+stage1/simulation_data/gpr_uncertainty_results.json
+stage1/simulation_data/energy_violations.json
+
+# 运行 manifest（仅本地调试用）
+stage1/simulation_data/run_manifest_*.json
+stage1/simulation_data/run_manifest_latest.json
+stage1/simulation_data/session_actions.jsonl
+stage1/simulation_data/performance_summary_*.json
+stage1/simulation_data/performance_summary_*.csv
+stage1/simulation_data/performance_summary_index.json
+stage1/simulation_data/model_info.json
+stage1/simulation_data/material_info.json
+stage1/simulation_data/inspect_regions_report.json
+
+# Stage2 生成的图表（太大，用脚本重新生成）
+stage2/figures/*.png
+stage2/figures/*.json
+stage2/figures/*.csv
+stage2/figures/*.md
+stage2/figures/fallback_synthetic/
+
+# Region 模型（运行时自动生成）
+stage1/simulation_data/region_models/
+stage1/simulation_data/region_config.json
+stage1/simulation_data/region_training_summary.json
+stage1/simulation_data/bandscan_summary.csv
+
+# ===== 论文草稿（不随代码开源） =====
+论文/
+
+# ===== AI 工作空间（开发者笔记，可选开源） =====
+# 如果要保留，删掉下面这行
+AI工作空间/
+
+# ===== 临时文件 =====
+*.tmp
+*.backup*
+.bak
+*~
+*.swp
+.DS_Store
+Thumbs.db
+
+# ===== 本地配置覆盖 =====
+stage1/simulation_data/config.json
