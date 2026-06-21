@@ -2,6 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/)
+[![DOI](https://zenodo.org/badge/1254207794.svg)](https://doi.org/10.5281/zenodo.20782707)
 
 Physics-constrained surrogate modeling pipeline that combines **Transfer Matrix Method (TMM)**
 simulation with **Support Vector Regression (SVR)** for rapid prediction of PDMS/SiO₂ thin-film
