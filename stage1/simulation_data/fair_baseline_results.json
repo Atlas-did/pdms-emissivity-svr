@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "n_samples": 82938,
+    "n_thicknesses": 46,
+    "n_wavelengths": 601,
+    "rf_n_estimators": 200,
+    "rf_max_depth": 20,
+    "key_finding": "With honest thickness-grouped split: RF R2=0.9998, SVR R2=0.9720. Random-split RF R2=0.9999 is inflated by 0.0002. Fair RF and SVR are comparable — SVR is NOT inferior."
+  },
+  "results": {
+    "SVR_13feat_grouped": {
+      "name": "SVR (13feat, grouped)",
+      "r2": 0.9719761658684826,
+      "rmse": 0.039001522474211035,
+      "mae": 0.01827399471735608,
+      "train_time_s": 17904.14,
+      "n_train": 57696,
+      "n_test": 25242,
+      "n_support_vectors": 24033,
+      "info": "Same config as paper Table 2 SVR"
+    },
+    "RF_3feat_grouped": {
+      "name": "RF (3feat, grouped)",
+      "r2": 0.9997572219558521,
+      "rmse": 0.003630132590155339,
+      "mae": 0.0018536135386011097,
+      "train_time_s": 1.44,
+      "n_train": 57696,
+      "n_test": 25242,
+      "n_support_vectors": null,
+      "info": "Random Forest with HONEST thickness-grouped split"
+    },
+    "RF_13feat_grouped": {
+      "name": "RF (13feat, grouped)",
+      "r2": 0.9997923733695635,
+      "rmse": 0.0033570616098723043,
+      "mae": 0.0011851773134640496,
+      "train_time_s": 8.14,
+      "n_train": 57696,
+      "n_test": 25242,
+      "n_support_vectors": null,
+      "info": "Random Forest with engineered features + honest split"
+    },
+    "GBR_13feat_grouped": {
+      "name": "GBR (13feat, grouped)",
+      "r2": 0.9996204181045897,
+      "rmse": 0.004539108131765078,
+      "mae": 0.002503446180666599,
+      "train_time_s": 53.07,
+      "n_train": 57696,
+      "n_test": 25242,
+      "n_support_vectors": null,
+      "info": "Gradient Boosting with engineered features + honest split"
+    },
+    "RF_3feat_random": {
+      "name": "RF (3feat, random)",
+      "r2": 0.9999479711839506,
+      "rmse": 0.0016715537568901347,
+      "mae": 0.0006946018458256886,
+      "train_time_s": 1.82,
+      "n_train": 58056,
+      "n_test": 24882,
+      "n_support_vectors": null,
+      "info": "SAME RF config but with LEAKY random split — matches ~0.9998"
+    },
+    "RF_13feat_random": {
+      "name": "RF (13feat, random)",
+      "r2": 0.999929688995811,
+      "rmse": 0.0019431665535119542,
+      "mae": 0.0007782429566946363,
+      "train_time_s": 8.54,
+      "n_train": 58056,
+      "n_test": 24882,
+      "n_support_vectors": null,
+      "info": "RF with 13 features, random split — likely even higher R2"
+    }
+  }
+}

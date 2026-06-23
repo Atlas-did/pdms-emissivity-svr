@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "n_samples": 82938,
+    "n_repeats": 5,
+    "elapsed_s": 1671.0
+  },
+  "features": [
+    {
+      "rank": 1,
+      "feature": "SiO2 thickness (nm)",
+      "importance_mean": 0.8703804886988659,
+      "importance_std": 0.009825321005423387
+    },
+    {
+      "rank": 2,
+      "feature": "wavelength (um)",
+      "importance_mean": 0.856204473613556,
+      "importance_std": 0.00513276599691359
+    },
+    {
+      "rank": 3,
+      "feature": "cos_PDMS * cos_SiO2",
+      "importance_mean": 0.8454823027747999,
+      "importance_std": 0.006593300390609692
+    },
+    {
+      "rank": 4,
+      "feature": "cos(delta_SiO2)",
+      "importance_mean": 0.8358631872113552,
+      "importance_std": 0.009967815969193711
+    },
+    {
+      "rank": 5,
+      "feature": "sin_PDMS * cos_SiO2",
+      "importance_mean": 0.7262376847322187,
+      "importance_std": 0.010685274290376202
+    },
+    {
+      "rank": 6,
+      "feature": "PDMS thickness (nm)",
+      "importance_mean": 0.6583961085934347,
+      "importance_std": 0.004918761333059074
+    },
+    {
+      "rank": 7,
+      "feature": "sin(delta_PDMS)",
+      "importance_mean": 0.6164736864942121,
+      "importance_std": 0.005771103057253523
+    },
+    {
+      "rank": 8,
+      "feature": "cos_PDMS * sin_SiO2",
+      "importance_mean": 0.5835013503435731,
+      "importance_std": 0.005467508930360714
+    },
+    {
+      "rank": 9,
+      "feature": "sin_PDMS * sin_SiO2",
+      "importance_mean": 0.529990482163686,
+      "importance_std": 0.007236889269615629
+    },
+    {
+      "rank": 10,
+      "feature": "sin(delta_SiO2)",
+      "importance_mean": 0.480152453837162,
+      "importance_std": 0.006537845401994809
+    },
+    {
+      "rank": 11,
+      "feature": "1/wavelength",
+      "importance_mean": 0.43059387251116565,
+      "importance_std": 0.006216700650914531
+    },
+    {
+      "rank": 12,
+      "feature": "d_PDMS / wavelength",
+      "importance_mean": 0.4028203340882026,
+      "importance_std": 0.008652328397053072
+    },
+    {
+      "rank": 13,
+      "feature": "cos(delta_PDMS)",
+      "importance_mean": 0.3392961871203516,
+      "importance_std": 0.008655982605753332
+    }
+  ],
+  "top3": [
+    "SiO2 thickness (nm)",
+    "wavelength (um)",
+    "cos_PDMS * cos_SiO2"
+  ]
+}

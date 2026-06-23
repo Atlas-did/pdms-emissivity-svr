@@ -40,7 +40,6 @@ stage1/simulation_data/tmm_emissivity_data_regioned.csv
 *.joblib
 
 # 测试结果（1.5MB）
-stage1/simulation_data/test_results.json
 stage1/simulation_data/speed_results.json
 stage1/simulation_data/baseline_comparison_results.json
 stage1/simulation_data/gpr_uncertainty_results.json
