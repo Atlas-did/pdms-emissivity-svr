@@ -8,7 +8,7 @@ Physics-constrained surrogate modeling pipeline that combines **Transfer Matrix 
 simulation with **Support Vector Regression (SVR)** for rapid prediction of PDMS/SiO₂ thin-film
 infrared emissivity across λ = 2.0–14.0 μm and d = 100–1000 nm.
 
-**Key result:** Hold-out R² = 0.959, RMSE = 0.047, MAE = 0.026 — **275× faster** than direct TMM evaluation.
+**Key result:** Hold-out R² = **0.973 ± 0.002** (5-seed, thickness-grouped split), RMSE = 0.038, MAE = 0.018 — **275× faster** than direct TMM evaluation.  See [Supplementary Analysis](docs/SUPPLEMENTARY.md) for full-scale baselines, feature importance, robustness, and ablation results.
 
 ---
 
@@ -19,6 +19,12 @@ pip install -r requirements.txt
 
 # Generate TMM training data & train SVR surrogate (~2 min)
 python stage1/main_pdms_svr_bandscan_full.py --action full_pipeline
+
+# Reproduce full-scale analysis (see docs/SUPPLEMENTARY.md for details)
+python stage1/run_fair_baselines.py --max-samples 90000
+python stage1/run_robustness_parallel.py --max-samples 90000 --workers 5
+python stage1/run_feature_importance.py --max-samples 90000
+python stage1/run_ablation_parallel.py --max-samples 90000 --workers 4
 
 # Generate all paper figures
 python stage2/分区图片1.0.py
@@ -43,7 +49,9 @@ For detailed instructions in Chinese, see [docs/usage_zh.md](docs/usage_zh.md).
 │   └── run_p1_p2_p3_all.py      #   Unified runner for all paper figures
 ├── docs/                        # Documentation
 │   ├── usage_zh.md              #   Usage guide (Chinese)
-│   └── physics_zh.md            #   Physical & mathematical background (Chinese)
+│   ├── usage_zh.md              #   Usage guide (Chinese)
+│   ├── physics_zh.md            #   Physical & mathematical background (Chinese)
+│   └── SUPPLEMENTARY.md          #   Full-scale results: baselines, robustness, ablation
 ├── requirements.txt             # Python dependencies
 ├── requirements.lock.txt        # Pinned dependency versions (exact reproducibility)
 ├── LICENSE                      # MIT
