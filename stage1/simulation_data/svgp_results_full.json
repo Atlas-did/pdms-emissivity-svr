@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "n_train": 57696,
+    "n_test": 25242,
+    "n_inducing": 500,
+    "n_iter": 200,
+    "lr": 0.05,
+    "train_time_s": 72.3
+  },
+  "results": {
+    "r2": 0.817858183003618,
+    "rmse": 0.09943118517230683,
+    "mae": 0.06272193545311268,
+    "sigma_mean": 0.113,
+    "in_1sigma": 0.7855,
+    "in_2sigma": 0.9425,
+    "calibration_1sigma": "OVER",
+    "calibration_2sigma": "GOOD"
+  },
+  "model": {
+    "params": 257003,
+    "inducing_points": 500,
+    "length_scale": 1.8311264514923096,
+    "output_scale": 0.2636115550994873,
+    "noise": 0.01116789598017931
+  }
+}
