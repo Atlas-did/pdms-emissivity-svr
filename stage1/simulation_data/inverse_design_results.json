@@ -1,0 +1,65 @@
+{
+  "target": {
+    "description": "maximize mean eps in 8-13 um",
+    "wl_range_um": [
+      8.0,
+      13.0
+    ]
+  },
+  "designs": [
+    {
+      "d_sio2_nm": 1500,
+      "d_optimal_nm": 1002.7,
+      "mean_eps": 0.4846,
+      "n_iter": 6,
+      "time_s": 2.2,
+      "success": true,
+      "eps_range": [
+        0.0686,
+        0.9296
+      ],
+      "pareto_top3": [
+        {
+          "d_pdms_nm": 1025,
+          "mean_eps": 0.4846
+        },
+        {
+          "d_pdms_nm": 1000,
+          "mean_eps": 0.4845
+        },
+        {
+          "d_pdms_nm": 975,
+          "mean_eps": 0.4824
+        }
+      ],
+      "sanity_eps_at_init": 0.1285
+    }
+  ],
+  "best": {
+    "d_sio2_nm": 1500,
+    "d_optimal_nm": 1002.7,
+    "mean_eps": 0.4846,
+    "n_iter": 6,
+    "time_s": 2.2,
+    "success": true,
+    "eps_range": [
+      0.0686,
+      0.9296
+    ],
+    "pareto_top3": [
+      {
+        "d_pdms_nm": 1025,
+        "mean_eps": 0.4846
+      },
+      {
+        "d_pdms_nm": 1000,
+        "mean_eps": 0.4845
+      },
+      {
+        "d_pdms_nm": 975,
+        "mean_eps": 0.4824
+      }
+    ],
+    "sanity_eps_at_init": 0.1285
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "A1_full_model": {
+    "description": "Halton search + energy filter (baseline)",
+    "hyperparams": {
+      "C": 1000,
+      "gamma": 1.0,
+      "eps": 0.01
+    },
+    "search_time_s": 342.72,
+    "r2": 0.9727533476724493,
+    "rmse": 0.038456907596796736,
+    "mae": 0.01788608208673043,
+    "train_time_s": 18598.36,
+    "n_train": 57696,
+    "n_test": 25242,
+    "n_support_vectors": 24159
+  },
+  "A2_no_energy_filter": {
+    "description": "No energy filter (0 extra pts)",
+    "extra_samples": 0,
+    "r2": 0.9727533476724493,
+    "rmse": 0.038456907596796736,
+    "mae": 0.01788608208673043,
+    "train_time_s": 18386.8,
+    "n_train": 57696,
+    "n_test": 25242,
+    "n_support_vectors": 24159
+  },
+  "A3_random_split": {
+    "description": "Random split (inflated R2, NOT comparable)",
+    "note": "Data leakage from adjacent wavelengths",
+    "r2": 0.9722166626829852,
+    "rmse": 0.039089353458143204,
+    "mae": 0.01819783922480127,
+    "train_time_s": 21499.3
+  },
+  "A4_grid_search": {
+    "description": "Grid search (18 combos) instead of Halton",
+    "best_params": {
+      "C": 100,
+      "epsilon": 0.01,
+      "gamma": 1.0
+    },
+    "search_time_s": 575.06,
+    "r2": 0.9644209203714401,
+    "rmse": 0.04314047232333129,
+    "mae": 0.024811613132706398
+  },
+  "A5_global_svr_reference": {
+    "description": "Global SVR (paper Table 2, production model)",
+    "r2": 0.9593194201357486,
+    "rmse": 0.04699063903056949,
+    "mae": 0.026108882678197692,
+    "split_protocol": "group_split_by_thickness=true:allow_random_split=false:test_size=0.3:random_seed=42"
+  }
+}

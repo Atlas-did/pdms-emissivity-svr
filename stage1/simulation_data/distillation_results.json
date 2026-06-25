@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "n_samples": 82938,
+    "rf_n_estimators": 200,
+    "rf_max_depth": 20,
+    "method": "RF teacher → SVR student distillation"
+  },
+  "teacher": {
+    "model": "RandomForest",
+    "r2": 0.9997923733695635,
+    "rmse": 0.003357061609872304,
+    "train_time_s": 7.5
+  },
+  "student_baseline": {
+    "r2": 0.9719761658684826,
+    "rmse": 0.039001522474211035,
+    "mae": 0.01827399471735608,
+    "train_time_s": 9123.55,
+    "n_support_vectors": 24033
+  },
+  "student_distilled": {
+    "trained_on": "RF_predictions",
+    "r2_vs_RF": 0.9726707248433831,
+    "rmse_vs_RF": 0.038437839737907195,
+    "r2_vs_TMM": 0.9719709052491261,
+    "rmse_vs_TMM": 0.03900518297504213,
+    "mae_vs_TMM": 0.01827404421038801,
+    "n_support_vectors": 24006,
+    "train_time_s": 9078.52
+  },
+  "gain_on_TMM": {
+    "delta_R2": -0.0,
+    "delta_RMSE": 0.0,
+    "note": "Positive delta_R2 = distillation improved accuracy on TMM truth"
+  }
+}

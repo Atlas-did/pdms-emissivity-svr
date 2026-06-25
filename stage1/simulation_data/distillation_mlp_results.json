@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "n_samples": 82938,
+    "method": "RF teacher -> MLP student distillation",
+    "rf_teacher_r2": 0.9998,
+    "rf_teacher_rmse": 0.0034
+  },
+  "models": {
+    "mlp_baseline_128x64x32": {
+      "r2": 0.9992164979991871,
+      "rmse": 0.006521354944213633,
+      "mae": 0.004186322485862682,
+      "train_time_s": 24.36,
+      "hidden_layers": [
+        128,
+        64,
+        32
+      ],
+      "n_iter": 102
+    },
+    "mlp_baseline_256x128x64": {
+      "r2": 0.9995453418779066,
+      "rmse": 0.00496775604619968,
+      "mae": 0.0033188175153123895,
+      "train_time_s": 50.82,
+      "hidden_layers": [
+        256,
+        128,
+        64
+      ],
+      "n_iter": 103
+    },
+    "mlp_baseline_512x256x128": {
+      "r2": 0.9997190176293071,
+      "rmse": 0.0039053262437937866,
+      "mae": 0.002442705420937647,
+      "train_time_s": 222.32,
+      "hidden_layers": [
+        512,
+        256,
+        128
+      ],
+      "n_iter": 97
+    },
+    "mlp_distilled_128x64x32": {
+      "r2": 0.9989237298464639,
+      "rmse": 0.007627910057221602,
+      "mae": 0.004660306880421276,
+      "train_time_s": 26.71,
+      "hidden_layers": [
+        128,
+        64,
+        32
+      ],
+      "n_iter": 106
+    },
+    "mlp_distilled_128x64x32_on_TMM": {
+      "r2": 0.9991107388375927,
+      "rmse": 0.006947562244205077,
+      "mae": 0.0042871789142908,
+      "note": "Trained on RF labels, tested on TMM truth"
+    },
+    "mlp_distilled_256x128x64": {
+      "r2": 0.9993380756783308,
+      "rmse": 0.005982036858403523,
+      "mae": 0.003576664714201253,
+      "train_time_s": 49.55,
+      "hidden_layers": [
+        256,
+        128,
+        64
+      ],
+      "n_iter": 101
+    },
+    "mlp_distilled_256x128x64_on_TMM": {
+      "r2": 0.9994908807226018,
+      "rmse": 0.00525687383991602,
+      "mae": 0.0032312889955312444,
+      "note": "Trained on RF labels, tested on TMM truth"
+    },
+    "mlp_distilled_512x256x128": {
+      "r2": 0.999133305625659,
+      "rmse": 0.006845070160043026,
+      "mae": 0.004191081707133395,
+      "train_time_s": 165.5,
+      "hidden_layers": [
+        512,
+        256,
+        128
+      ],
+      "n_iter": 71
+    },
+    "mlp_distilled_512x256x128_on_TMM": {
+      "r2": 0.9992582170982439,
+      "rmse": 0.006345358924803641,
+      "mae": 0.003920443202708435,
+      "note": "Trained on RF labels, tested on TMM truth"
+    }
+  },
+  "comparison": {
+    "svr_baseline_r2": 0.9719761658684826,
+    "svr_distilled_r2": 0.9719709052491261,
+    "mlp_best_distilled_r2": 0.9994908807226018,
+    "mlp_vs_svr_delta": 0.0275
+  }
+}

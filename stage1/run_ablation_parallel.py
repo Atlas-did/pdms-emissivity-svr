@@ -191,22 +191,49 @@ def main():
         X_search, y_search, groups_search = X, y, groups
 
     results = {}
+
+    # --- Resume support: skip A1 if already done ---
+    C_bp, g_bp, e_bp = 500, 1.0, 0.01  # defaults (overwritten by A1 or resume)
+    a1_time = None
+    if out_path.exists():
+        try:
+            prev = json.load(open(out_path))
+            if "A1_full_model" in prev:
+                a1_prev = prev["A1_full_model"]
+                C_bp = a1_prev["hyperparams"]["C"]
+                g_bp = a1_prev["hyperparams"]["gamma"]
+                e_bp = a1_prev["hyperparams"]["eps"]
+                print(f"\n[RESUME] Loaded A1 params from {out_path.name}: "
+                      f"C={C_bp}, gamma={g_bp}, eps={e_bp}, R2={a1_prev['r2']:.4f}")
+                results["A1_full_model"] = a1_prev
+        except Exception as e:
+            print(f"[RESUME] Could not load previous results: {e}")
+
     print(f"\n{'='*60}\n  Ablation Study ({len(df_clean)} samples, "
           f"{X.shape[1]} features, {workers} workers)\n{'='*60}")
 
     # A1: Full model
-    print("\n[A1] Full model (Halton search, energy filter)...")
-    bp, ss, bs = halton_search_parallel(X_search, y_search, groups_search, args.n_iter,
-                                        workers=workers, cache_mb=args.cache_mb,
-                                        quick=args.quick)
-    C_bp, g_bp, e_bp = bp["C"], bp["gamma"], bp["eps"]
-    m1 = train_eval(X, y, groups, C=C_bp, gamma=g_bp, eps=e_bp,
-                    cache_mb=args.cache_mb, label="  final eval")
-    results["A1_full_model"] = {
-        "description": "Halton search + energy filter (baseline)",
-        "hyperparams": bp, "search_time_s": ss, **m1}
-    print(f"  => R2={m1['r2']:.4f}, RMSE={m1['rmse']:.4f}, search={ss}s")
-    checkpoint()
+    if "A1_full_model" in results:
+        print(f"\n[A1] SKIPPED (already in {out_path.name})")
+        a1_time = results["A1_full_model"]["train_time_s"]
+        print(f"  [ETA] A2 ~{a1_time/3600:.1f}h, A3 ~{a1_time/3600:.1f}h, A4 ~0.2h, A5 ~0s. "
+              f"Total remaining ~{a1_time/3600*2+0.2:.0f}h")
+    else:
+        print("\n[A1] Full model (Halton search, energy filter)...")
+        bp, ss, bs = halton_search_parallel(X_search, y_search, groups_search, args.n_iter,
+                                            workers=workers, cache_mb=args.cache_mb,
+                                            quick=args.quick)
+        C_bp, g_bp, e_bp = bp["C"], bp["gamma"], bp["eps"]
+        m1 = train_eval(X, y, groups, C=C_bp, gamma=g_bp, eps=e_bp,
+                        cache_mb=args.cache_mb, label="  final eval")
+        results["A1_full_model"] = {
+            "description": "Halton search + energy filter (baseline)",
+            "hyperparams": bp, "search_time_s": ss, **m1}
+        print(f"  => R2={m1['r2']:.4f}, RMSE={m1['rmse']:.4f}, search={ss}s")
+        a1_time = m1['train_time_s']
+        print(f"  [ETA] A2 ~{a1_time/3600:.1f}h, A3 ~{a1_time/3600:.1f}h, A4 ~0.2h, A5 ~0s. "
+              f"Total remaining ~{a1_time/3600*2+0.2:.0f}h")
+        checkpoint()
 
     # A2: No energy filter
     print("\n[A2] No energy filter (all data, same params)...")
