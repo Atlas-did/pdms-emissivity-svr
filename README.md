@@ -49,7 +49,6 @@ For detailed instructions in Chinese, see [docs/usage_zh.md](docs/usage_zh.md).
 │   └── run_p1_p2_p3_all.py      #   Unified runner for all paper figures
 ├── docs/                        # Documentation
 │   ├── usage_zh.md              #   Usage guide (Chinese)
-│   ├── usage_zh.md              #   Usage guide (Chinese)
 │   ├── physics_zh.md            #   Physical & mathematical background (Chinese)
 │   └── SUPPLEMENTARY.md          #   Full-scale results: baselines, robustness, ablation
 ├── requirements.txt             # Python dependencies
